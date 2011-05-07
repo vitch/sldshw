@@ -26,3 +26,19 @@
 {
 	position: absolute;
 }
+.sldshow ul li div
+{
+	font-family: arial, _sans;
+	position: absolute;
+	z-index: 2;
+	color: #fff;
+	font-size: 10px;
+	bottom: 4px;
+	left: 4px;
+	background: rgba(0, 0, 0, .4);
+	padding: 2px 3px 3px;
+}
+.sldshow ul li div a
+{
+	color: #fff;
+}

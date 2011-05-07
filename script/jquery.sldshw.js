@@ -18,7 +18,7 @@
 						api_key: settings.apiKey,
 						format: 'json',
 						//nojsoncallback: 1,
-						extras: 'url_' + settings.imageSize,
+						extras: 'owner_name,path_alias,url_' + settings.imageSize,
 						per_page: settings.numPhotos,
 						page: settings.page
 					},
@@ -49,7 +49,7 @@
 				).success(
 					function(data, status, xhr)
 					{
-						var images = [], currentImageIndex = -1;
+						var lis = [], currentImageIndex = -1;
 						$.each(
 							data.photos.photo,
 							function(i, photo)
@@ -57,7 +57,7 @@
 								var w = photo['width_' + settings.imageSize],
 									h = photo['height_' + settings.imageSize],
 									photoRatio = w / h,
-									img = $('<img />'),
+									li = $('<li />'),
 									destW, destH, destX, destY, scale;
 								if (settings.cropToContainer) {
 									if (photoRatio > containerRatio) {
@@ -77,38 +77,50 @@
 								destX = (containerW - w) /2;
 								destY = (containerH - h) /2;
 								ul.append(
-									$('<li style="width:' + containerW + 'px; height:' + containerH + 'px;"/>').append(
-										img
+									li.css(
+										{
+											width: containerW,
+											height: containerH,
+											display: 'none'
+										}
+									).append(
+										$('<img/>')
 											.attr('src', photo['url_' + settings.imageSize])
 											.css(
 												{
 													width: w,
 													height: h,
 													top: destY,
-													left: destX,
-													display: 'none'
+													left: destX
 												}
-											)
+											),
+										$('<div>photo by </div>').append(
+											$('<a>' + photo.ownername + '</a>')
+												.attr(
+													{
+														href: 'http://www.flickr.com/photos/' + photo.pathalias + '/' + photo.id,
+														target: '_blank'
+													}
+												)
+										)
 									)
 								);
-								images.push(img);
+								lis.push(li);
 							}
 						);
 						function showNextImage()
 						{
 							if (currentImageIndex > -1) {
-								images[currentImageIndex].fadeOut(settings.fadeTime);
+								lis[currentImageIndex].fadeOut(settings.fadeTime);
 							}
 							currentImageIndex ++;
-							if (currentImageIndex == images.length) {
+							if (currentImageIndex == lis.length) {
 								currentImageIndex = 0;
 							}
-							console.log('Showing image ', currentImageIndex, images[currentImageIndex]);
-							images[currentImageIndex].fadeIn(
+							lis[currentImageIndex].fadeIn(
 								settings.fadeTime,
 								function()
 								{
-									console.log('done');
 									setTimeout(showNextImage, settings.displayTime);
 								}
 							);
