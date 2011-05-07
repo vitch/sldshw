@@ -42,6 +42,9 @@
 					case 'groups.pools.getPhotos':
 						params.group_id = settings.groupId;
 						break;
+					case 'photos.search':
+						params.sort = settings.sort;
+						break;
 					default:
 						throw new Error('Invalid action set');
 				}
@@ -184,6 +187,10 @@
 			numPhotos: 10,
 			// The page of results to load
 			page: 1,
+			// The sort order to pass to Flickr - one of:
+			// date-posted-asc, date-posted-desc, date-taken-asc, date-taken-desc, interestingness-desc,
+			// interestingness-asc, and relevance
+			sort: 'interestingness-desc',
 			// Which size image to load (it will be sized to fit in the container anyway) - one of:
 			// sq, t, s, m, z, l, o
 			imageSize: 'm',

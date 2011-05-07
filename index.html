@@ -38,6 +38,12 @@
 						tags: 'thishappened-edinburgh-2'
 					}
 				);
+				$('#search-results-slideshow').sldshw(
+					{
+						action: 'photos.search',
+						tags: 'kittens'
+					}
+				);
 			}
 		);
 	</script>
@@ -74,6 +80,16 @@
 	}
 );</pre>
 	<div id="filtered-group-slideshow" class="slideshow">
+		<p>Javascript is required to load this slideshow from Flickr</p>
+	</div>
+	<h2>Search results slideshow</h2>
+	<pre>$('#search-results-slideshow').sldshw(
+	{
+		action: 'photos.search',
+		tags: 'kittens'
+	}
+);</pre>
+	<div id="search-results-slideshow" class="slideshow">
 		<p>Javascript is required to load this slideshow from Flickr</p>
 	</div>
 </body>
