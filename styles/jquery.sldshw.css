@@ -3,20 +3,23 @@
 {
 	width: 100%;
 	height: 100%;
-	xoverflow: hidden;
+	overflow: hidden;
 }
 .sldshow ul
 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
+	position: relative;
 }
 .sldshow ul li
 {
 	margin: 0;
 	padding: 0;
 	float: left;
-	position: relative;
+	position: absolute;
+	left: 0;
+	top: 0;
 	overflow: hidden;
 }
 .sldshow ul li img
