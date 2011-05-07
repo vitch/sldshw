@@ -15,10 +15,12 @@
 
 			function initialise(settings) {
 				var params = {
-						api_key: s.apiKey,
+						api_key: settings.apiKey,
 						format: 'json',
 						//nojsoncallback: 1,
-						extras: 'url_' + settings.imageSize
+						extras: 'url_' + settings.imageSize,
+						per_page: settings.numPhotos,
+						page: settings.page
 					},
 					containerW = elem.width(),
 					containerH = elem.height(),
@@ -130,6 +132,10 @@
 			// Whether to crop the images to the size of the container (true) or to size them so that the fit within
 			// the bounds of the container (false)
 			cropToContainer: true,
+			// The number of images to load
+			numPhotos: 10,
+			// The page of results to load
+			page: 1,
 			// Which size image to load (it will be sized to fit in the container anyway) - one of:
 			// sq, t, s, m, z, l, o
 			imageSize: 'm',
