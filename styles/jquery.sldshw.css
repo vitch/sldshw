@@ -1,0 +1,20 @@
+
+.sldshow
+{
+	width: 100%;
+	height: 100%;
+	xoverflow: hidden;
+}
+.sldshow ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sldshow ul li
+{
+	margin: 0;
+	padding: 0;
+	float: left;
+	overflow: hidden;
+}
