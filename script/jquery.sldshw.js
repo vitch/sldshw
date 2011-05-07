@@ -115,6 +115,7 @@
 							}
 							currentImageIndex ++;
 							if (currentImageIndex == lis.length) {
+								elem.trigger('sldshwcomplete');
 								if (settings.loop) {
 									currentImageIndex = 0;
 								} else {
