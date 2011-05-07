@@ -115,7 +115,11 @@
 							}
 							currentImageIndex ++;
 							if (currentImageIndex == lis.length) {
-								currentImageIndex = 0;
+								if (settings.loop) {
+									currentImageIndex = 0;
+								} else {
+									return;
+								}
 							}
 							lis[currentImageIndex].fadeIn(
 								settings.fadeTime,
@@ -167,6 +171,8 @@
 			// Whether to crop the images to the size of the container (true) or to size them so that the fit within
 			// the bounds of the container (false)
 			cropToContainer: true,
+			// Whether the slideshow should loop when it reaches the end
+			loop: true,
 			// The number of images to load
 			numPhotos: 10,
 			// The page of results to load
