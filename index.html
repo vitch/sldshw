@@ -17,11 +17,18 @@
 	<script type="text/javascript">
 		$(function()
 			{
-				$('#homepage-slideshow').sldshw(
+				$.fn.sldshw.defaults.apiKey = '8751df9272bfaf2ee1527c7dca940d8b';
+
+				$('#favorites-slideshow').sldshw(
 					{
-						apiKey: '8751df9272bfaf2ee1527c7dca940d8b',
 						action: 'favorites.getPublicList',
 						userId: '61989727@N05'
+					}
+				);
+				$('#group-slideshow').sldshw(
+					{
+						action: 'groups.pools.getPhotos',
+						groupId: '1000489@N24'
 					}
 				);
 			}
@@ -31,7 +38,24 @@
 </head>
 <body>
 	<h1>Slideshow examples</h1>
-	<div id="homepage-slideshow" class="slideshow">
+	<h2>Favourites slideshow</h2>
+	<pre>$('#favorites-slideshow').sldshw(
+	{
+		action: 'favorites.getPublicList',
+		userId: '61989727@N05' // http://www.flickr.com/people/thishappened/
+	}
+);</pre>
+	<div id="favorites-slideshow" class="slideshow">
+		<p>Javascript is required to load this slideshow from Flickr</p>
+	</div>
+	<h2>Group slideshow</h2>
+	<pre>$('#favorites-slideshow').sldshw(
+	{
+		action: 'groups.pools.getPhotos',
+		groupId: '1000489@N24' // http://www.flickr.com/groups/thishappenededinburgh/
+	}
+);</pre>
+	<div id="group-slideshow" class="slideshow">
 		<p>Javascript is required to load this slideshow from Flickr</p>
 	</div>
 </body>

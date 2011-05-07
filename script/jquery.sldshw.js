@@ -17,7 +17,7 @@
 				var params = {
 						api_key: settings.apiKey,
 						format: 'json',
-						//nojsoncallback: 1,
+						method: 'flickr.' + settings.action,
 						extras: 'owner_name,path_alias,url_' + settings.imageSize,
 						per_page: settings.numPhotos,
 						page: settings.page
@@ -33,8 +33,10 @@
 
 				switch (settings.action) {
 					case 'favorites.getPublicList':
-						params.method = 'flickr.favorites.getPublicList';
 						params.user_id = settings.userId;
+						break;
+					case 'groups.pools.getPhotos':
+						params.group_id = settings.groupId;
 						break;
 					default:
 						throw new Error('Invalid action set');
