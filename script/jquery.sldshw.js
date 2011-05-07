@@ -45,6 +45,9 @@
 					case 'photos.search':
 						params.sort = settings.sort;
 						break;
+					case 'people.getPublicPhotos':
+						params.user_id = settings.userId;
+						break;
 					default:
 						throw new Error('Invalid action set');
 				}
