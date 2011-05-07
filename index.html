@@ -31,6 +31,13 @@
 						groupId: '1000489@N24'
 					}
 				);
+				$('#filtered-group-slideshow').sldshw(
+					{
+						action: 'groups.pools.getPhotos',
+						groupId: '1000489@N24',
+						tags: 'thishappened-edinburgh-2'
+					}
+				);
 			}
 		);
 	</script>
@@ -49,13 +56,24 @@
 		<p>Javascript is required to load this slideshow from Flickr</p>
 	</div>
 	<h2>Group slideshow</h2>
-	<pre>$('#favorites-slideshow').sldshw(
+	<pre>$('#group-slideshow').sldshw(
 	{
 		action: 'groups.pools.getPhotos',
 		groupId: '1000489@N24' // http://www.flickr.com/groups/thishappenededinburgh/
 	}
 );</pre>
 	<div id="group-slideshow" class="slideshow">
+		<p>Javascript is required to load this slideshow from Flickr</p>
+	</div>
+	<h2>Filtered group slideshow</h2>
+	<pre>$('#filtered-group-slideshow').sldshw(
+	{
+		action: 'groups.pools.getPhotos',
+		groupId: '1000489@N24', // http://www.flickr.com/groups/thishappenededinburgh/
+		tags: 'thishappened-edinburgh-2'
+	}
+);</pre>
+	<div id="filtered-group-slideshow" class="slideshow">
 		<p>Javascript is required to load this slideshow from Flickr</p>
 	</div>
 </body>

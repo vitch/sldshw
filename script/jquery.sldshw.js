@@ -31,6 +31,10 @@
 					$('<div class="sldshow"/>').append(ul)
 				);
 
+				if (settings.tags) {
+					params.tags = settings.tags;
+				}
+
 				switch (settings.action) {
 					case 'favorites.getPublicList':
 						params.user_id = settings.userId;
