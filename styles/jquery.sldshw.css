@@ -16,5 +16,10 @@
 	margin: 0;
 	padding: 0;
 	float: left;
+	position: relative;
 	overflow: hidden;
+}
+.sldshow ul li img
+{
+	position: absolute;
 }

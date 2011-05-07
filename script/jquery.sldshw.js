@@ -71,6 +71,8 @@
 								}
 								w = Math.round(w * scale);
 								h = Math.round(h * scale);
+								destX = (containerW - w) /2;
+								destY = (containerH - h) /2;
 								ul.append(
 									$('<li style="width:' + containerW + 'px; height:' + containerH + 'px;"/>').append(
 										$('<img />')
@@ -78,7 +80,9 @@
 											.css(
 												{
 													width: w,
-													height: h
+													height: h,
+													top: destY,
+													left: destX
 												}
 											)
 									)
